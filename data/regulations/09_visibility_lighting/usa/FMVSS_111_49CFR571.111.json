@@ -1,0 +1,10 @@
+{
+  "domain": "visibility_lighting",
+  "region": "usa",
+  "code": "FMVSS 111",
+  "title": "Rear visibility",
+  "filename": "FMVSS_111_49CFR571.111.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.111",
+  "status": "downloadable",
+  "download_result": "exists"
+}

@@ -1,0 +1,10 @@
+{
+  "domain": "steering_ad",
+  "region": "un_eu",
+  "code": "UN R79",
+  "title": "Steering equipment",
+  "filename": "UN_R79_Rev5.pdf",
+  "source_url": "https://documents.un.org/api/symbol/access?l=en&s=E%2FECE%2F324%2FRev.1%2FAdd.78%2FRev.5&t=pdf",
+  "status": "downloadable",
+  "download_result": "exists"
+}

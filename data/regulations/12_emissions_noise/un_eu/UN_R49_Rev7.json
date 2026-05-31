@@ -1,0 +1,10 @@
+{
+  "domain": "emissions_noise",
+  "region": "un_eu",
+  "code": "UN R49",
+  "title": "Emissions of compression ignition and positive ignition engines",
+  "filename": "UN_R49_Rev7.pdf",
+  "source_url": "https://documents.un.org/api/symbol/access?l=en&s=E%2FECE%2F324%2FRev.1%2FAdd.48%2FRev.7&t=pdf",
+  "status": "downloadable",
+  "download_result": "exists"
+}

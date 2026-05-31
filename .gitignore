@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+.env
+.env.*
+.tools/
+dist/
+data/feedback.jsonl
+data/regulations/_cache/
+data/evaluations/*.png
+
+# Large regulation originals should use Git LFS or GitHub Releases.
+*.pdf

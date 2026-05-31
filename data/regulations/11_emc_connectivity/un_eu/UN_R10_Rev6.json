@@ -1,0 +1,10 @@
+{
+  "domain": "emc_connectivity",
+  "region": "un_eu",
+  "code": "UN R10",
+  "title": "Electromagnetic compatibility",
+  "filename": "UN_R10_Rev6.pdf",
+  "source_url": "https://documents.un.org/api/symbol/access?l=en&s=E%2FECE%2F324%2FAdd.9%2FRev.6&t=pdf",
+  "status": "downloadable",
+  "download_result": "exists"
+}

@@ -1,0 +1,9 @@
+{
+  "domain": "bsis_mois",
+  "region": "usa",
+  "code": "No direct FMVSS",
+  "title": "No corresponding mandatory FMVSS identified",
+  "filename": "US_BSIS_MOIS_metadata.json",
+  "status": "metadata_only",
+  "download_result": "metadata_only"
+}

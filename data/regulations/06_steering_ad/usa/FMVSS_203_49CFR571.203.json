@@ -1,0 +1,10 @@
+{
+  "domain": "steering_ad",
+  "region": "usa",
+  "code": "FMVSS 203",
+  "title": "Impact protection for the driver from the steering control system",
+  "filename": "FMVSS_203_49CFR571.203.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.203",
+  "status": "downloadable",
+  "download_result": "exists"
+}

@@ -1,0 +1,10 @@
+{
+  "domain": "emissions_noise",
+  "region": "usa",
+  "code": "EPA heavy-duty emissions",
+  "title": "Heavy-duty highway compression-ignition emission standards",
+  "filename": "US_EPA_heavy_duty_emissions_metadata.json",
+  "source_url": "https://www.ecfr.gov/current/title-40/chapter-I/subchapter-U/part-1037",
+  "status": "metadata_only",
+  "download_result": "metadata_only"
+}

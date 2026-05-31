@@ -1,0 +1,9 @@
+{
+  "domain": "ldws_lka",
+  "region": "usa",
+  "code": "FMCSA guidance",
+  "title": "No standalone mandatory FMVSS identified for heavy truck LDWS/LKA",
+  "filename": "US_LDWS_LKA_metadata.json",
+  "status": "metadata_only",
+  "download_result": "metadata_only"
+}

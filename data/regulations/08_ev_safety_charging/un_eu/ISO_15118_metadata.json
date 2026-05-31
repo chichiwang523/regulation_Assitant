@@ -1,0 +1,11 @@
+{
+  "domain": "ev_safety_charging",
+  "region": "un_eu",
+  "code": "ISO 15118",
+  "title": "Vehicle-to-grid communication interface",
+  "filename": "ISO_15118_metadata.json",
+  "source_url": "https://www.iso.org/standard/77845.html",
+  "status": "metadata_only",
+  "note": "ISO standards are paywalled; metadata only.",
+  "download_result": "metadata_only"
+}

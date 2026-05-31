@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>商用车法规助手</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Commercial Vehicle Regulation Assistant</p>
+          <h1>商用车法规助手</h1>
+          <p class="product-intro">面向商用车主机厂和 Tier1 工程师，支持法规版本对比、跨地区差异梳理和全文检索问答。</p>
+          <p class="product-intro muted">用于减少法规检索和阅读工作量；结论需结合原文证据复核，效果会受到所选大模型影响。</p>
+        </div>
+        <div class="account-box">
+          <span>演示账号</span>
+          <strong>demo.engineer@oem.local</strong>
+        </div>
+      </header>
+
+      <section class="control-strip">
+        <div class="model-card">
+          <label for="modelMode">模型模式</label>
+          <select id="modelMode">
+            <option value="platform">平台预设模型（按次计费）</option>
+            <option value="byok">使用自己的大模型 API Key</option>
+          </select>
+          <input id="apiKeyInput" type="password" placeholder="输入你的 API Key，仅本地演示不上传" hidden />
+          <small id="modelNote">平台模式示例：10 次对比 10 元，20 次问答 10 元。实际效果会受所选大模型影响。</small>
+        </div>
+        <div class="quota-card">
+          <span>剩余额度</span>
+          <strong><b id="compareQuota">10</b> 次对比 / <b id="qaQuota">20</b> 次问答</strong>
+          <small>Demo 计数仅在当前浏览器本地生效。</small>
+        </div>
+        <button id="feedbackOpenButton" class="secondary-button" type="button">提交反馈</button>
+      </section>
+
+      <nav class="tabs" aria-label="功能分页">
+        <button id="compareTab" class="tab active" type="button" data-target="comparePage">法规对比</button>
+        <button id="qaTab" class="tab" type="button" data-target="qaPage">检索问答</button>
+      </nav>
+
+      <section class="notice">
+        <strong>使用说明</strong>
+        <span>对比和问答结果必须回看原文证据；当用户选择自有模型 API 时，准确率、速度和费用会受到所选模型影响。</span>
+      </section>
+
+      <section id="comparePage" class="page active">
+        <section class="toolbar">
+          <div>
+            <h2>法规对比</h2>
+            <p>适合新旧版本、GB vs UN/EU/FM VSS、同一模块多地区法规差异分析。</p>
+          </div>
+          <button id="compareButton" type="button">开始对比</button>
+        </section>
+
+        <section class="upload-grid" aria-label="对比上传区">
+          <label class="upload-panel">
+            <span>左侧法规 / 旧版本</span>
+            <input id="leftFile" type="file" accept="application/pdf" />
+            <strong id="leftName">未选择 PDF</strong>
+          </label>
+          <label class="upload-panel">
+            <span>右侧法规 / 新版本</span>
+            <input id="rightFile" type="file" accept="application/pdf" />
+            <strong id="rightName">未选择 PDF</strong>
+          </label>
+        </section>
+
+        <section id="status" class="status" hidden></section>
+
+        <section id="summary" class="summary" hidden>
+          <div>
+            <span>左侧</span>
+            <strong id="leftSummary"></strong>
+          </div>
+          <div>
+            <span>右侧</span>
+            <strong id="rightSummary"></strong>
+          </div>
+        </section>
+
+        <section id="conclusionPanel" class="conclusion-panel" hidden>
+          <div class="conclusion-head">
+            <h2>全文对比结论</h2>
+            <span id="conclusionMeta"></span>
+          </div>
+          <p id="conclusionHeadline"></p>
+          <div id="conclusionStats" class="conclusion-stats"></div>
+          <ul id="conclusionFindings"></ul>
+          <ul id="conclusionCaveats" class="caveats"></ul>
+        </section>
+
+        <section class="workspace">
+          <aside class="result-list">
+            <div class="list-header">
+              <h2>差异列表</h2>
+              <span id="resultCount">0</span>
+            </div>
+            <div id="results"></div>
+          </aside>
+
+          <section class="detail">
+            <div class="detail-header">
+              <h2 id="detailTitle">等待对比</h2>
+              <span id="detailMeta"></span>
+            </div>
+            <div class="compare-grid">
+              <article>
+                <h3>左侧原文</h3>
+                <pre id="leftText">上传两份 PDF 后开始。</pre>
+              </article>
+              <article>
+                <h3>右侧原文</h3>
+                <pre id="rightText">上传两份 PDF 后开始。</pre>
+              </article>
+            </div>
+            <div class="analysis">
+              <h3>差异解释</h3>
+              <p id="analysisText">结果会显示在这里。</p>
+              <ul id="evidence"></ul>
+            </div>
+          </section>
+        </section>
+      </section>
+
+      <section id="qaPage" class="page">
+        <section class="toolbar">
+          <div>
+            <h2>检索问答</h2>
+            <p>上传一份法规进行定向提问，或切换到本地法规库做跨法规检索。</p>
+          </div>
+        </section>
+
+        <section class="qa-panel" aria-label="法规问答">
+          <div class="qa-source">
+            <label class="upload-panel single-upload">
+              <span>上传单份法规 PDF</span>
+              <input id="qaFile" type="file" accept="application/pdf" />
+              <strong id="qaFileName">未选择 PDF</strong>
+            </label>
+            <button id="uploadQaDocButton" type="button">载入法规</button>
+            <label class="corpus-toggle">
+              <input id="useCorpus" type="checkbox" />
+              <span>改用本地法规库检索</span>
+            </label>
+          </div>
+          <div id="qaDocStatus" class="status" hidden></div>
+
+          <div id="chatMessages" class="chat-messages">
+            <div class="chat-message assistant">先上传一份法规，然后问我具体参数、适用范围、测试条件或条款位置。也可以勾选“本地法规库检索”进行跨法规提问。</div>
+          </div>
+          <div class="qa-row">
+            <input id="questionInput" type="search" placeholder="例如：初始制动温度是多少？后防护试验载荷是多少？" />
+            <button id="askButton" type="button">发送</button>
+          </div>
+          <div id="qaResults" class="qa-results"></div>
+        </section>
+      </section>
+    </main>
+
+    <dialog id="feedbackDialog" class="feedback-dialog">
+      <form id="feedbackForm" method="dialog">
+        <div class="dialog-head">
+          <h2>提交反馈</h2>
+          <button id="feedbackCloseButton" class="icon-button" type="button">×</button>
+        </div>
+        <label>
+          反馈类型
+          <select id="feedbackType">
+            <option value="answer_quality">问答不准确</option>
+            <option value="diff_quality">对比误报/漏报</option>
+            <option value="document_missing">法规缺失</option>
+            <option value="feature_request">功能建议</option>
+          </select>
+        </label>
+        <label>
+          联系方式
+          <input id="feedbackContact" type="text" placeholder="邮箱或手机号，可选" />
+        </label>
+        <label>
+          反馈内容
+          <textarea id="feedbackMessage" rows="6" placeholder="请贴出问题、法规名称、期望答案或截图描述。"></textarea>
+        </label>
+        <p class="dialog-note">反馈会记录并汇总给管理员：13248301527@139.com。</p>
+        <div class="dialog-actions">
+          <button id="feedbackSubmitButton" type="submit">提交</button>
+        </div>
+      </form>
+    </dialog>
+
+    <script src="/static/app.js"></script>
+  </body>
+</html>

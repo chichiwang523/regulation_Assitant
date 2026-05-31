@@ -1,0 +1,9 @@
+{
+  "domain": "ev_safety_charging",
+  "region": "china",
+  "code": "GB/T 18487",
+  "title": "Conductive charging system",
+  "filename": "GBT_18487_metadata.json",
+  "status": "metadata_only",
+  "download_result": "metadata_only"
+}

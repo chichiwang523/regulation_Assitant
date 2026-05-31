@@ -1,0 +1,10 @@
+{
+  "domain": "coupling_marking",
+  "region": "un_eu",
+  "code": "UN R70",
+  "title": "Rear marking plates for heavy and long vehicles",
+  "filename": "UN_R70_Rev1.pdf",
+  "source_url": "https://documents.un.org/api/symbol/access?l=en&s=E%2FECE%2F324%2FRev.1%2FAdd.69%2FRev.1&t=pdf",
+  "status": "downloadable",
+  "download_result": "exists"
+}

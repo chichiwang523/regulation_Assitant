@@ -1,0 +1,10 @@
+{
+  "domain": "underrun_protection",
+  "region": "usa",
+  "code": "FMVSS 224",
+  "title": "Rear impact protection",
+  "filename": "FMVSS_224_49CFR571.224.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.224",
+  "status": "downloadable",
+  "download_result": "exists"
+}

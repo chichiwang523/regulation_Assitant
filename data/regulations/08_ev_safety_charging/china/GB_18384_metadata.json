@@ -1,0 +1,9 @@
+{
+  "domain": "ev_safety_charging",
+  "region": "china",
+  "code": "GB 18384",
+  "title": "Electric vehicle safety requirements",
+  "filename": "GB_18384_metadata.json",
+  "status": "metadata_only",
+  "download_result": "metadata_only"
+}

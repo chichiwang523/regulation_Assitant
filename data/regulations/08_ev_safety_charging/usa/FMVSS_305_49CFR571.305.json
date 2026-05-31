@@ -1,0 +1,10 @@
+{
+  "domain": "ev_safety_charging",
+  "region": "usa",
+  "code": "FMVSS 305",
+  "title": "Electric-powered vehicles: electrolyte spillage and electrical shock protection",
+  "filename": "FMVSS_305_49CFR571.305.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.305",
+  "status": "downloadable",
+  "download_result": "exists"
+}

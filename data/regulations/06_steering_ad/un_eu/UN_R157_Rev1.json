@@ -1,0 +1,10 @@
+{
+  "domain": "steering_ad",
+  "region": "un_eu",
+  "code": "UN R157",
+  "title": "Automated Lane Keeping Systems",
+  "filename": "UN_R157_Rev1.pdf",
+  "source_url": "https://documents.un.org/api/symbol/access?l=en&s=E%2FECE%2FTRANS%2F505%2FRev.3%2FAdd.156%2FRev.1&t=pdf",
+  "status": "downloadable",
+  "download_result": "exists"
+}

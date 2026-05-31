@@ -1,0 +1,10 @@
+{
+  "domain": "aeb_aebs",
+  "region": "usa",
+  "code": "FMVSS 127",
+  "title": "Automatic emergency braking for light vehicles",
+  "filename": "FMVSS_127_49CFR571.127.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.127",
+  "status": "downloadable",
+  "download_result": "exists"
+}

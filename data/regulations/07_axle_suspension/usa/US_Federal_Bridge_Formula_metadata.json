@@ -1,0 +1,10 @@
+{
+  "domain": "axle_suspension",
+  "region": "usa",
+  "code": "Federal Bridge Formula",
+  "title": "Federal Bridge Formula / state bridge laws",
+  "filename": "US_Federal_Bridge_Formula_metadata.json",
+  "source_url": "https://ops.fhwa.dot.gov/freight/publications/brdg_frm_wghts/",
+  "status": "metadata_only",
+  "download_result": "metadata_only"
+}

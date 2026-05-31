@@ -1,0 +1,9 @@
+{
+  "domain": "emissions_noise",
+  "region": "china",
+  "code": "GB 1495",
+  "title": "Limits and measurement methods for noise emitted by accelerating motor vehicles",
+  "filename": "GB_1495_metadata.json",
+  "status": "metadata_only",
+  "download_result": "metadata_only"
+}

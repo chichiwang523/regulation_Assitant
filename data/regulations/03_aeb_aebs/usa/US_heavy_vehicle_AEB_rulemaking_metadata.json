@@ -1,0 +1,11 @@
+{
+  "domain": "aeb_aebs",
+  "region": "usa",
+  "code": "Heavy vehicle AEB final rule",
+  "title": "NHTSA/FMCSA heavy vehicle AEB rulemaking",
+  "filename": "US_heavy_vehicle_AEB_rulemaking_metadata.json",
+  "source_url": "https://www.nhtsa.gov/laws-regulations/advanced-driver-assistance-systems",
+  "status": "metadata_only",
+  "note": "No stable FMVSS section equivalent was added to eCFR in this corpus run.",
+  "download_result": "metadata_only"
+}

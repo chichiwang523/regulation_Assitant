@@ -1,0 +1,11 @@
+{
+  "domain": "ev_safety_charging",
+  "region": "usa",
+  "code": "SAE J1772",
+  "title": "SAE conductive charge coupler",
+  "filename": "SAE_J1772_metadata.json",
+  "source_url": "https://www.sae.org/standards/content/j1772_202401/",
+  "status": "metadata_only",
+  "note": "SAE standards are paywalled; metadata only.",
+  "download_result": "metadata_only"
+}

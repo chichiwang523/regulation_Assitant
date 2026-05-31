@@ -1,0 +1,10 @@
+{
+  "domain": "underrun_protection",
+  "region": "usa",
+  "code": "FMVSS 223",
+  "title": "Rear impact guards",
+  "filename": "FMVSS_223_49CFR571.223.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.223",
+  "status": "downloadable",
+  "download_result": "exists"
+}

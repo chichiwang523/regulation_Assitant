@@ -1,0 +1,10 @@
+{
+  "domain": "tires_wheels",
+  "region": "usa",
+  "code": "FMVSS 120",
+  "title": "Tire selection and rims for vehicles over 4,536 kg GVWR",
+  "filename": "FMVSS_120_49CFR571.120.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.120",
+  "status": "downloadable",
+  "download_result": "exists"
+}

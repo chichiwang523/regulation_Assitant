@@ -1,0 +1,11 @@
+{
+  "domain": "ev_safety_charging",
+  "region": "usa",
+  "code": "SAE J3105",
+  "title": "Electric vehicle power transfer system using conductive automated connection devices",
+  "filename": "SAE_J3105_metadata.json",
+  "source_url": "https://www.sae.org/standards/content/j3105_202002/",
+  "status": "metadata_only",
+  "note": "SAE standards are paywalled; metadata only.",
+  "download_result": "metadata_only"
+}

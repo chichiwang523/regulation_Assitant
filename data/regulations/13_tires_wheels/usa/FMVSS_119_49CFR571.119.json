@@ -1,0 +1,10 @@
+{
+  "domain": "tires_wheels",
+  "region": "usa",
+  "code": "FMVSS 119",
+  "title": "New pneumatic tires for vehicles over 4,536 kg GVWR",
+  "filename": "FMVSS_119_49CFR571.119.xml",
+  "source_url": "https://www.ecfr.gov/api/versioner/v1/full/current/title-49.xml?part=571&section=571.119",
+  "status": "downloadable",
+  "download_result": "exists"
+}

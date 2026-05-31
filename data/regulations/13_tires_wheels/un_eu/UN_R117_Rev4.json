@@ -1,0 +1,10 @@
+{
+  "domain": "tires_wheels",
+  "region": "un_eu",
+  "code": "UN R117",
+  "title": "Tyre rolling sound emissions, adhesion and rolling resistance",
+  "filename": "UN_R117_Rev4.pdf",
+  "source_url": "https://documents.un.org/api/symbol/access?l=en&s=E%2FECE%2F324%2FRev.2%2FAdd.116%2FRev.4&t=pdf",
+  "status": "downloadable",
+  "download_result": "exists"
+}
