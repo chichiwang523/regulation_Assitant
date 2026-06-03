@@ -1,0 +1,2 @@
+pypdf>=5.0.0
+legacy-cgi>=2.6.3; python_version >= "3.13"

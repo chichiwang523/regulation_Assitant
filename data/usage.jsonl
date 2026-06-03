@@ -1,0 +1,15 @@
+{"at": "2026-06-02T07:20:03.747834+00:00", "user": "xingchi.wang@zf.com", "action": "login", "detail": "管理员"}
+{"at": "2026-06-02T07:20:35.587802+00:00", "user": "xingchi.wang@zf.com", "action": "ask", "detail": "FMVSS 223 P1 P2 P3 load force 50000 350000"}
+{"at": "2026-06-02T07:24:14.510877+00:00", "user": "codex.functional.tester.1780385053@zf.com", "action": "login", "detail": "测试用户"}
+{"at": "2026-06-02T07:24:14.611993+00:00", "user": "xingchi.wang@zf.com", "action": "login", "detail": "管理员"}
+{"at": "2026-06-02T07:24:55.827393+00:00", "user": "xingchi.wang@zf.com", "action": "login", "detail": "管理员"}
+{"at": "2026-06-02T07:25:30.576332+00:00", "user": "xingchi.wang@zf.com", "action": "login", "detail": "管理员"}
+{"at": "2026-06-02T07:26:07.245996+00:00", "user": "xingchi.wang@zf.com", "action": "login", "detail": "管理员"}
+{"at": "2026-06-02T07:26:07.338277+00:00", "user": "xingchi.wang@zf.com", "action": "upload", "detail": "left-test.txt（1页）"}
+{"at": "2026-06-02T07:26:07.501567+00:00", "user": "xingchi.wang@zf.com", "action": "compare", "detail": "left-test.txt ↔ right-test.txt"}
+{"at": "2026-06-02T07:26:24.298037+00:00", "user": "xingchi.wang@zf.com", "action": "upload", "detail": "left-test.txt（1页）"}
+{"at": "2026-06-02T07:26:38.828282+00:00", "user": "xingchi.wang@zf.com", "action": "upload", "detail": "left-test.txt（1页）"}
+{"at": "2026-06-02T07:26:38.952901+00:00", "user": "xingchi.wang@zf.com", "action": "ask", "detail": "P1 force requirement"}
+{"at": "2026-06-02T07:33:21.954295+00:00", "user": "xingchi.wang@zf.com", "action": "login", "detail": "管理员"}
+{"at": "2026-06-02T07:33:21.996867+00:00", "user": "xingchi.wang@zf.com", "action": "upload", "detail": "summary-regulation.txt（1页）"}
+{"at": "2026-06-02T07:33:22.114004+00:00", "user": "xingchi.wang@zf.com", "action": "ask", "detail": "总结法规"}

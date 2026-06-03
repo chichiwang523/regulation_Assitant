@@ -6,8 +6,12 @@ __pycache__/
 .tools/
 dist/
 data/feedback.jsonl
+data/users.json
+data/invite_codes.json
+data/uploads/
 data/regulations/_cache/
 data/evaluations/*.png
+server*.log
 
 # Large regulation originals should use Git LFS or GitHub Releases.
 *.pdf

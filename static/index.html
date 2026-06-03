@@ -7,69 +7,91 @@
     <link rel="stylesheet" href="/static/styles.css" />
   </head>
   <body>
+    <section id="loginGate" class="login-gate">
+      <form id="loginForm" class="login-card">
+        <p class="eyebrow">Internal Test Access</p>
+        <h1>商用车法规助手内测</h1>
+        <p>请输入公司邮箱和测试邀请码，验证通过后即可立即开始测试。</p>
+        <label>
+          公司邮箱
+          <input id="loginEmail" type="email" placeholder="name@zf.com" autocomplete="email" required />
+        </label>
+        <label>
+          <span id="loginCodeLabel">测试邀请码</span>
+          <input id="loginCode" type="password" placeholder="向管理员获取" required />
+        </label>
+        <button id="loginButton" type="submit">登录 / 申请测试</button>
+        <div id="loginStatus" class="login-status" hidden></div>
+      </form>
+    </section>
+
     <main class="app">
       <header class="topbar">
-        <div>
-          <p class="eyebrow">Commercial Vehicle Regulation Assistant</p>
+        <div class="brand">
+          <p class="eyebrow">CVS Regulation Assistant</p>
           <h1>商用车法规助手</h1>
-          <p class="product-intro">面向商用车主机厂和 Tier1 工程师，支持法规版本对比、跨地区差异梳理和全文检索问答。</p>
-          <p class="product-intro muted">用于减少法规检索和阅读工作量；结论需结合原文证据复核，效果会受到所选大模型影响。</p>
         </div>
-        <div class="account-box">
-          <span>演示账号</span>
-          <strong>demo.engineer@oem.local</strong>
-        </div>
+        <button id="settingsButton" class="settings-button" type="button" aria-label="设置与个人中心" aria-expanded="false">
+          <span class="gear" aria-hidden="true">⚙</span>
+          <span class="settings-label">设置</span>
+        </button>
       </header>
 
-      <section class="control-strip">
-        <div class="model-card">
-          <label for="modelMode">模型模式</label>
-          <select id="modelMode">
-            <option value="platform">平台预设模型（按次计费）</option>
-            <option value="byok">使用自己的大模型 API Key</option>
-          </select>
-          <input id="apiKeyInput" type="password" placeholder="输入你的 API Key，仅本地演示不上传" hidden />
-          <small id="modelNote">平台模式示例：10 次对比 10 元，20 次问答 10 元。实际效果会受所选大模型影响。</small>
-        </div>
-        <div class="quota-card">
-          <span>剩余额度</span>
-          <strong><b id="compareQuota">10</b> 次对比 / <b id="qaQuota">20</b> 次问答</strong>
-          <small>Demo 计数仅在当前浏览器本地生效。</small>
-        </div>
-        <button id="feedbackOpenButton" class="secondary-button" type="button">提交反馈</button>
-      </section>
-
-      <nav class="tabs" aria-label="功能分页">
+      <nav class="tabs" role="tablist" aria-label="功能分页">
         <button id="compareTab" class="tab active" type="button" data-target="comparePage">法规对比</button>
         <button id="qaTab" class="tab" type="button" data-target="qaPage">检索问答</button>
       </nav>
 
-      <section class="notice">
-        <strong>使用说明</strong>
-        <span>对比和问答结果必须回看原文证据；当用户选择自有模型 API 时，准确率、速度和费用会受到所选模型影响。</span>
+      <section id="noticeBar" class="notice-bar" role="note">
+        <span class="notice-bar-icon" aria-hidden="true">i</span>
+        <p class="notice-bar-text">仅支持上传<b>公开发布的法规、标准等公共资料</b>，请勿上传涉密 / 内部 / 客户文件；结论请回看原文证据核对。</p>
+        <button id="noticeClose" class="notice-bar-close" type="button" aria-label="关闭提示">×</button>
       </section>
 
       <section id="comparePage" class="page active">
-        <section class="toolbar">
+        <section class="toolbar single">
           <div>
             <h2>法规对比</h2>
-            <p>适合新旧版本、GB vs UN/EU/FM VSS、同一模块多地区法规差异分析。</p>
+            <p>适合新旧版本、GB vs UN/EU/FMVSS、同一模块多地区法规差异分析。</p>
           </div>
-          <button id="compareButton" type="button">开始对比</button>
         </section>
 
         <section class="upload-grid" aria-label="对比上传区">
-          <label class="upload-panel">
-            <span>左侧法规 / 旧版本</span>
-            <input id="leftFile" type="file" accept="application/pdf" />
-            <strong id="leftName">未选择 PDF</strong>
+          <label class="dropzone" data-zone="left">
+            <input id="leftFile" type="file" accept=".pdf,.docx,.txt,.md,application/pdf" hidden />
+            <div class="dropzone-prompt">
+              <span class="dropzone-icon" aria-hidden="true">DOC</span>
+              <strong>点击或拖拽上传旧版本</strong>
+              <span class="dropzone-sub">左侧法规 / 旧版本</span>
+            </div>
+            <div class="dropzone-done" hidden>
+              <span class="dropzone-check" aria-hidden="true">✓</span>
+              <div class="dropzone-file">
+                <strong id="leftName">未选择文件</strong>
+                <span id="leftSize" class="dropzone-size"></span>
+              </div>
+            </div>
           </label>
-          <label class="upload-panel">
-            <span>右侧法规 / 新版本</span>
-            <input id="rightFile" type="file" accept="application/pdf" />
-            <strong id="rightName">未选择 PDF</strong>
+          <label class="dropzone" data-zone="right">
+            <input id="rightFile" type="file" accept=".pdf,.docx,.txt,.md,application/pdf" hidden />
+            <div class="dropzone-prompt">
+              <span class="dropzone-icon" aria-hidden="true">DOC</span>
+              <strong>点击或拖拽上传新版本</strong>
+              <span class="dropzone-sub">右侧法规 / 新版本</span>
+            </div>
+            <div class="dropzone-done" hidden>
+              <span class="dropzone-check" aria-hidden="true">✓</span>
+              <div class="dropzone-file">
+                <strong id="rightName">未选择文件</strong>
+                <span id="rightSize" class="dropzone-size"></span>
+              </div>
+            </div>
           </label>
         </section>
+
+        <div class="primary-action">
+          <button id="compareButton" type="button">开始对比</button>
+        </div>
 
         <section id="status" class="status" hidden></section>
 
@@ -95,19 +117,52 @@
           <ul id="conclusionCaveats" class="caveats"></ul>
         </section>
 
+        <section id="parameterPanel" class="parameter-panel" hidden>
+          <div class="section-head">
+            <div>
+              <h2>关键参数矩阵</h2>
+              <p>自动抽取带单位的工程参数，优先展示左右法规数值不一致或单侧出现的条目。</p>
+            </div>
+            <span id="parameterCount">0</span>
+          </div>
+          <div class="parameter-table-wrap">
+            <table class="parameter-table">
+              <thead>
+                <tr>
+                  <th>参数</th>
+                  <th>左侧值</th>
+                  <th>右侧值</th>
+                  <th>位置</th>
+                  <th>风险</th>
+                </tr>
+              </thead>
+              <tbody id="parameterRows"></tbody>
+            </table>
+          </div>
+        </section>
+
         <section class="workspace">
           <aside class="result-list">
             <div class="list-header">
               <h2>差异列表</h2>
               <span id="resultCount">0</span>
             </div>
+            <div class="result-filters" aria-label="差异筛选">
+              <button class="filter-chip active" type="button" data-filter="actionable">实质优先</button>
+              <button class="filter-chip" type="button" data-filter="high">高风险</button>
+              <button class="filter-chip" type="button" data-filter="parameter">参数变化</button>
+              <button class="filter-chip" type="button" data-filter="all">全部</button>
+            </div>
             <div id="results"></div>
           </aside>
 
           <section class="detail">
             <div class="detail-header">
-              <h2 id="detailTitle">等待对比</h2>
-              <span id="detailMeta"></span>
+              <div>
+                <h2 id="detailTitle">等待对比</h2>
+                <span id="detailMeta"></span>
+              </div>
+              <button id="feedbackResultButton" class="compact-button" type="button" disabled>反馈这条结果</button>
             </div>
             <div class="compare-grid">
               <article>
@@ -138,12 +193,21 @@
 
         <section class="qa-panel" aria-label="法规问答">
           <div class="qa-source">
-            <label class="upload-panel single-upload">
-              <span>上传单份法规 PDF</span>
-              <input id="qaFile" type="file" accept="application/pdf" />
-              <strong id="qaFileName">未选择 PDF</strong>
+            <label class="dropzone single" data-zone="qa">
+              <input id="qaFile" type="file" accept=".pdf,.docx,.txt,.md,application/pdf" hidden />
+              <div class="dropzone-prompt">
+                <span class="dropzone-icon" aria-hidden="true">DOC</span>
+                <strong>点击或拖拽上传单份法规</strong>
+                <span class="dropzone-sub">选择后自动载入</span>
+              </div>
+              <div class="dropzone-done" hidden>
+                <span class="dropzone-check" aria-hidden="true">✓</span>
+                <div class="dropzone-file">
+                  <strong id="qaFileName">未选择文件</strong>
+                  <span id="qaSize" class="dropzone-size"></span>
+                </div>
+              </div>
             </label>
-            <button id="uploadQaDocButton" type="button">载入法规</button>
             <label class="corpus-toggle">
               <input id="useCorpus" type="checkbox" />
               <span>改用本地法规库检索</span>
@@ -154,19 +218,74 @@
           <div id="chatMessages" class="chat-messages">
             <div class="chat-message assistant">先上传一份法规，然后问我具体参数、适用范围、测试条件或条款位置。也可以勾选“本地法规库检索”进行跨法规提问。</div>
           </div>
-          <div class="qa-row">
-            <input id="questionInput" type="search" placeholder="例如：初始制动温度是多少？后防护试验载荷是多少？" />
-            <button id="askButton" type="button">发送</button>
+          <div class="qa-input-wrap">
+            <div class="qa-input-meta">
+              <span id="modelBadge" class="model-badge">⚡ 自动</span>
+            </div>
+            <div class="qa-row">
+              <input id="questionInput" type="search" placeholder="例如：初始制动温度是多少？后防护试验载荷是多少？" />
+              <button id="askButton" type="button">发送</button>
+            </div>
           </div>
           <div id="qaResults" class="qa-results"></div>
         </section>
       </section>
+
+      <div id="settingsOverlay" class="drawer-overlay" hidden></div>
+      <aside id="settingsDrawer" class="drawer" aria-hidden="true">
+        <div class="drawer-head">
+          <h2>设置与个人中心</h2>
+          <button id="settingsClose" class="icon-button" type="button" aria-label="关闭">×</button>
+        </div>
+
+        <div class="drawer-section">
+          <span class="drawer-label">当前账号</span>
+          <div class="account-row">
+            <div class="account-id">
+              <strong id="accountEmail">-</strong>
+              <span id="accountRole" class="account-role">未登录</span>
+            </div>
+            <button id="logoutButton" class="compact-button" type="button">退出</button>
+          </div>
+        </div>
+
+        <div class="drawer-section">
+          <span class="drawer-label">AI 模型来源</span>
+          <select id="modelMode">
+            <option value="platform">使用内置模型（开箱即用）</option>
+            <option value="byok">使用我自己的 LLM（自带 API Key）</option>
+          </select>
+          <input id="apiKeyInput" type="password" placeholder="粘贴你自己的 LLM API Key" autocomplete="off" hidden />
+          <small id="modelNote">内置模型由平台统一调用。测试账号使用次数有限，主要是出于 LLM 模型成本的考虑。</small>
+          <small id="llmStatus" class="llm-status">正在读取模型状态...</small>
+        </div>
+
+        <div class="drawer-section">
+          <span class="drawer-label">剩余额度</span>
+          <strong class="quota-line"><b id="compareQuota">10</b> 次对比 · <b id="qaQuota">20</b> 次问答</strong>
+          <small>Demo 计数仅在当前浏览器本地生效。</small>
+        </div>
+
+        <button id="feedbackOpenButton" class="secondary-button drawer-feedback" type="button">提交测试反馈</button>
+
+        <div id="adminSection" class="drawer-section admin-section" hidden>
+          <span class="drawer-label">管理员后台</span>
+          <small>查看用户使用记录、归档法规库与测试反馈。</small>
+          <button id="adminOpenButton" class="compact-button" type="button">打开管理后台</button>
+        </div>
+      </aside>
+
+      <button id="feedbackFab" class="feedback-fab" type="button" aria-label="提交测试反馈" hidden>
+        <span class="feedback-fab-icon" aria-hidden="true">✍</span>
+        <span class="feedback-fab-text">提交测试反馈</span>
+      </button>
+
     </main>
 
     <dialog id="feedbackDialog" class="feedback-dialog">
       <form id="feedbackForm" method="dialog">
         <div class="dialog-head">
-          <h2>提交反馈</h2>
+          <h2>提交测试反馈</h2>
           <button id="feedbackCloseButton" class="icon-button" type="button">×</button>
         </div>
         <label>
@@ -174,10 +293,12 @@
           <select id="feedbackType">
             <option value="answer_quality">问答不准确</option>
             <option value="diff_quality">对比误报/漏报</option>
+            <option value="parameter_quality">参数抽取不准确</option>
             <option value="document_missing">法规缺失</option>
             <option value="feature_request">功能建议</option>
           </select>
         </label>
+        <div id="feedbackContextNote" class="feedback-context">当前反馈未绑定具体结果。</div>
         <label>
           联系方式
           <input id="feedbackContact" type="text" placeholder="邮箱或手机号，可选" />
@@ -186,11 +307,28 @@
           反馈内容
           <textarea id="feedbackMessage" rows="6" placeholder="请贴出问题、法规名称、期望答案或截图描述。"></textarea>
         </label>
-        <p class="dialog-note">反馈会记录并汇总给管理员：13248301527@139.com。</p>
+        <p class="dialog-note">反馈会记录并汇总到管理员后台，由管理员统一查看处理。</p>
         <div class="dialog-actions">
           <button id="feedbackSubmitButton" type="submit">提交</button>
         </div>
       </form>
+    </dialog>
+
+    <dialog id="adminDialog" class="admin-dialog">
+      <div class="dialog-head">
+        <h2>管理后台</h2>
+        <button id="adminCloseButton" class="icon-button" type="button">×</button>
+      </div>
+      <nav class="admin-tabs" role="tablist">
+        <button class="admin-tab active" type="button" data-admin="usage">使用记录</button>
+        <button class="admin-tab" type="button" data-admin="uploads">归档法规</button>
+        <button class="admin-tab" type="button" data-admin="feedback">测试反馈</button>
+      </nav>
+      <div class="admin-body">
+        <section id="adminUsage" class="admin-pane active"></section>
+        <section id="adminUploads" class="admin-pane" hidden></section>
+        <section id="adminFeedback" class="admin-pane" hidden></section>
+      </div>
     </dialog>
 
     <script src="/static/app.js"></script>
